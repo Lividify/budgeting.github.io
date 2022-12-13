@@ -13,4 +13,4 @@ Love you <3
 
 not in that way though. 
 
-ALL RIGHTS TO THIS 
+ALL RIGHTS TO THIS PROJECT GO TO DILLING (name cosed to public)
