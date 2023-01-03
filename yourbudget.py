@@ -77,28 +77,16 @@ print()
 
 print("finding your device information...")
 
-import platform,socket,re,uuid,json,psutil,logging
-
-def getSystemInfo():
-    try:
-        info={}
-        info['platform']=platform.system()
-        info['platform-release']=platform.release()
-        info['platform-version']=platform.version()
-        info['architecture']=platform.machine()
-        info['hostname']=socket.gethostname()
-        info['ip-address']=socket.gethostbyname(socket.gethostname())
-        info['mac-address']=':'.join(re.findall('..', '%012x' % uuid.getnode()))
-        info['processor']=platform.processor()
-        info['ram']=str(round(psutil.virtual_memory().total / (1024.0 **3)))+" GB"
-        return json.dumps(info)
-    except Exception as e:
-        logging.exception(e)
-
-json.loads(getSystemInfo())
-
-print(getSystemInfo)
-
+import platform
+ 
+my_system = platform.uname()
+ 
+print(f"System: {my_system.system}")
+print(f"Node Name: {my_system.node}")
+print(f"Release: {my_system.release}")
+print(f"Version: {my_system.version}")
+print(f"Machine: {my_system.machine}")
+print(f"Processor: {my_system.processor}")
 
 print("Before we begin we need to know your name")
 name = input("what is your name? (first and last initial) ")
@@ -154,7 +142,7 @@ spending = a_budget.save_spend()
 import time 
 
 from tqdm import tqdm
- 
+
 data = [] 
 
 print("your data is now being calculated")
@@ -179,6 +167,7 @@ print("Your savings goal per month is: ")
 print(saving[0])
 print("Your disposable budget is: ")
 print(saving[1])
+
 
 
 
