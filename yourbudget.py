@@ -172,7 +172,5 @@ print(saving[0])
 print("Your disposable budget is: ")
 print(saving[1])
 
-direct = print("your now being redirected...")
-time(.1)
-
+print("thank you!")
 
