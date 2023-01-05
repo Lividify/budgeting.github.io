@@ -88,10 +88,13 @@ print(f"Version: {my_system.version}")
 print(f"Machine: {my_system.machine}")
 print(f"Processor: {my_system.processor}")
 
-print("Before we begin we need to know your name")
+import sys,time,os
+
+message = print("Before we begin we need to know your name.")
 name = input("what is your name? (first and last initial) ")
 
 print("welcome, " + name)
+
 
 income = int(input("What is your monthly income after taxes? "))
 housing = int(input("How much do you spend on housing per month? "))
@@ -145,6 +148,7 @@ from tqdm import tqdm
 
 data = [] 
 
+
 print("your data is now being calculated")
 
 for i in tqdm(range(10)):
@@ -168,6 +172,7 @@ print(saving[0])
 print("Your disposable budget is: ")
 print(saving[1])
 
-
+direct = print("your now being redirected...")
+time(.1)
 
 
