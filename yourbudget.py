@@ -77,33 +77,24 @@ print()
 
 print("finding your device information...")
 
-import platform,socket,re,uuid,json,psutil,logging
+import platform
+ 
+my_system = platform.uname()
+ 
+print(f"System: {my_system.system}")
+print(f"Node Name: {my_system.node}")
+print(f"Release: {my_system.release}")
+print(f"Version: {my_system.version}")
+print(f"Machine: {my_system.machine}")
+print(f"Processor: {my_system.processor}")
 
-def getSystemInfo():
-    try:
-        info={}
-        info['platform']=platform.system()
-        info['platform-release']=platform.release()
-        info['platform-version']=platform.version()
-        info['architecture']=platform.machine()
-        info['hostname']=socket.gethostname()
-        info['ip-address']=socket.gethostbyname(socket.gethostname())
-        info['mac-address']=':'.join(re.findall('..', '%012x' % uuid.getnode()))
-        info['processor']=platform.processor()
-        info['ram']=str(round(psutil.virtual_memory().total / (1024.0 **3)))+" GB"
-        return json.dumps(info)
-    except Exception as e:
-        logging.exception(e)
+import sys,time,os
 
-json.loads(getSystemInfo())
-
-print(getSystemInfo)
-
-
-print("Before we begin we need to know your name")
+message = print("Before we begin we need to know your name.")
 name = input("what is your name? (first and last initial) ")
 
 print("welcome, " + name)
+
 
 income = int(input("What is your monthly income after taxes? "))
 housing = int(input("How much do you spend on housing per month? "))
@@ -124,8 +115,8 @@ class Budget:
     
     def save_spend(self):
         if housing <= (income * 0.6):
-            save = income * 0.2
-            extra = income * 0.2
+            save = income * 0.5
+            extra = income * 0.5
         elif (housing <= (income * 0.8) and housing >= (income * 0.61)):
             save = income * 0.1
             extra = income * 0.1
@@ -154,8 +145,9 @@ spending = a_budget.save_spend()
 import time 
 
 from tqdm import tqdm
- 
+
 data = [] 
+
 
 print("your data is now being calculated")
 
